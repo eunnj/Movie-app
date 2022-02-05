@@ -17,16 +17,15 @@ function Detail(){
     })
     return (
         <div>
-            <h1>Detail</h1>
             <MovieDetail
-            key={movie.id}
-            id={movie.id}
-            coverImg={movie.medium_cover_image}
-            rating={movie.rating}
-            runtime={movie.runtime}
-            summary={movie.summary}tit
-            title={movie.title}
-            genres={movie.genres}/>
+                key={movie.id}
+                id={movie.id}
+                coverImg={movie.medium_cover_image}
+                rating={movie.rating}
+                runtime={movie.runtime}
+                title={movie.title}
+                genres={movie.genres}
+                description_full={movie.description_full}/>
         </div>
         
     );

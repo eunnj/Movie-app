@@ -1,21 +1,27 @@
 import PropTypes from "prop-types";
-
-function MovieDetail({coverImg,title,rating,runtime,genres,summary}){
+import styles from "./MovieDetail.module.css"
+function MovieDetail({coverImg,title,rating,runtime,genres,description_full}){
     return (
+    <div className={styles.background}>
         <div>
-          <img src={coverImg} alt={title}/>
-          <p>{rating ? `rating: ${rating} / 10` : null}</p>
-            <p>{runtime ? `runtime: ${runtime} (min)` : null}</p>
-            {
-              genres ?
-                // genre is the 'array'
-                <div>
-                  <b>{'genres'}</b>
-                  <ul>{genres.map(g => <li key={g}>{g}</li>)}</ul>
-                </div>
-                : null
-            }
-          <p>{summary}</p>
+          <img src={coverImg} alt={title} className={styles.movie_Img}/>
+          <div className={styles.shortView_letters}>
+            <h1>{title}</h1>
+            <p>{rating ? `평점: ${rating} / 10` : null}</p>
+            <p>{runtime ? `러닝타임: ${runtime} (분)` : null}</p>
+                {
+                genres ?
+                    <div>
+                    <b>{'장르'}</b>
+                    <ul>{genres.map(g => <li key={g}>{g}</li>)}</ul>
+                    </div>
+                    : null
+                }
+            </div>
+        </div>
+            <div className={styles.descript}>
+                <p>{description_full}</p>
+            </div>
         </div>
     );
 }
@@ -26,7 +32,7 @@ MovieDetail.propTypes={
     rating:PropTypes.number,
     runtime:PropTypes.number,
     genres:PropTypes.arrayOf(PropTypes.string).isRequired,
-    summary:PropTypes.string
+    description_full:PropTypes.string.isRequired,
 
 }
 

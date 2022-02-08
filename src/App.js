@@ -1,7 +1,3 @@
-import Button from "./Button"
-import styles from "./App.module.css"
-import { useState,useEffect } from "react";
-import Movie from "./components/Movie";
 import{
   BrowserRouter as Router,
   Routes,
@@ -9,15 +5,19 @@ import{
 } from "react-router-dom"
 import Home from "./routes/Home"
 import Detail from "./routes/Detail";
+import Navbar from "./components/Navbar";
+import Group from "./components/Group";
+
 
 function App() {
   return (
   <Router basename={process.env.PUBLIC_URL}>
+    <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/movie/:id" element={<Detail/>}/>
-      <Route path="/hello" element={<h1>hello</h1>}/>
-    </Routes>
+      <Route path={`/page/:group/:page`} element={<Group />} />
+      </Routes>
   </Router>
 );
 }

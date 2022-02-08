@@ -1,5 +1,8 @@
 import { useState,useEffect } from "react";
 import Movie from "../components/Movie";
+import { Group_obj, Group_key_arr } from "../components/NavList"
+import { Link } from "react-router-dom";
+import Load from "../components/Load";
 
 function Home(){
     const [loading,setLoading] = useState(true);
@@ -18,8 +21,10 @@ function Home(){
   console.log(movies);
   return (
     <div>
-      {loading?<h1>Loading...</h1>:
-      <div>
+      {loading?
+        <Load/> :
+      
+      /*<div>
         {movies.map((movie)=>(
         <Movie 
           key={movie.id}
@@ -29,8 +34,24 @@ function Home(){
           summary={movie.summary}
           genres={movie.genres}
         />
-        ))}
-      </div>}
+        ))}</div>*/
+        <div>
+          {Group_key_arr.map((group) => {
+        return (
+          <div key={group}>
+            <div >
+              <div>
+                <Link to={`/page/${Group_obj[group]}/1`}
+                style={{"display":"flex", "flexDirection":"row", "alignContent":"center"}}>
+                  <div><span>{group}</span></div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )
+      })}
+        </div>
+      }
     </div>
   );
 }

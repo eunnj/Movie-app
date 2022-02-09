@@ -1,8 +1,8 @@
 import { useState,useEffect } from "react";
-import Movie from "../components/Movie";
 import { Group_obj, Group_key_arr } from "../components/NavList"
 import { Link } from "react-router-dom";
 import Load from "../components/Load";
+import styles from "../components/Home.module.css";
 
 function Home(){
     const [loading,setLoading] = useState(true);
@@ -23,24 +23,12 @@ function Home(){
     <div>
       {loading?
         <Load/> :
-      
-      /*<div>
-        {movies.map((movie)=>(
-        <Movie 
-          key={movie.id}
-          id={movie.id}
-          coverImg={movie.medium_cover_image}
-          title={movie.title}
-          summary={movie.summary}
-          genres={movie.genres}
-        />
-        ))}</div>*/
         <div>
-          {Group_key_arr.map((group) => {
+        {Group_key_arr.map((group) => {
         return (
           <div key={group}>
-            <div >
-              <div>
+            <div className={styles.title}>
+              <div className={styles.titleBox}>
                 <Link to={`/page/${Group_obj[group]}/1`}
                 style={{"display":"flex", "flexDirection":"row", "alignContent":"center"}}>
                   <div><span>{group}</span></div>
@@ -48,10 +36,19 @@ function Home(){
               </div>
             </div>
           </div>
-        )
-      })}
+          )
+        })}
+        <div className={styles.footer}>
+        <div className={styles.copyright}>
+          <h3 className={styles.copyright_letter}>
+            Copyright belongs to eunnj
+          </h3>
         </div>
+      </div>
+    </div>
+        
       }
+      
     </div>
   );
 }

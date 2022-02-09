@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import { Group_obj,Group_key_arr } from "./NavList";
-import { useState } from "react";
+import styles from "./Navbar.module.css";
 
 function Navbar(){
     return(
          // It's the Navigation Bar, always above the container!!
-         <div>
+         <div className={styles.container}>
             {/* Page Name */}
-            <div>
+            <div className={styles.pageName}>
                 <Link to={"/"} >Home</Link>
             </div>
 
          {/* Group Links */}
-         <div>
+         <div  className={styles.GroupLink}>
              {
                  Group_key_arr.map((key) => {
                      return (
-                         <div key={key}>
-                             <div>
+                         <div className={styles.Link} key={key}>
+                             <div className={styles.Link_sep}>
                                  <Link
                                      to={`/page/${Group_obj[key]}/1`}
                                  >{key}</Link>
@@ -27,7 +27,7 @@ function Navbar(){
                  })
              }
              {/* 🎄 Merry Christmas! */}
-             <div><Link to={`/search/christmas`}>Christmas🎄</Link></div>
+             <div className={styles.MerryChristMas}><Link to={`/search/christmas`}>Christmas🎄</Link></div>
          </div>
          </div>
     );

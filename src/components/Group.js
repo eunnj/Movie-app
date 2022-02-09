@@ -3,6 +3,7 @@ import Load from "./Load";
 import MovieGroup from "./MovieGroup";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import styles from "./Group.module.css";
 
 const Page_arr=[1,2,3,4,5,6,7,8,9,10];
 
@@ -27,9 +28,9 @@ function Group(){
       }, [group, page])
 
 return(
-    <div>   
+    <div className={styles.container}>   
     { loading? <Load/>:
-        <div>
+        <div className={styles.movies}>
         {movies.map((movie) => (
         <MovieGroup
             key={movie.id}
@@ -47,8 +48,8 @@ return(
     {
        loading? null
        :
-       <div>
-         <div>
+       <div className={styles.footer}>
+         <div className={styles.list}>
            {
              Page_arr.map((lst) => {
                return (

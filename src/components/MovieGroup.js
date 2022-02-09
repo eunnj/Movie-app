@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styles from "./MovieGroup.module.css";
 
 function MovieGroup({id,coverImg,title,rating,year,runtime,summary,genres}){
     return (
         <div>
           <img src={coverImg} alt={title}/>
-          <h2>
-            <Link to={`/movie/${id}`}>{title}</Link>
-          </h2>
-          
+          <div className={styles.title}>
+          <Link to={`/movie/${id}`}>{title}</Link>
+          </div>
           <p>{year ? `year: ${year}` : null}</p>
           <p>{rating ? `rating: ${rating} / 10` : null}</p>
           <p>{runtime ? `runtime: ${runtime} (min)` : null}</p>

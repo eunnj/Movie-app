@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import { Group_obj,Group_key_arr } from "./NavList";
 import styles from "./Navbar.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { useState } from "react"
 
 function Navbar(){
+    const [search, setSearch] = useState(null);
+
+    // Event when u touch the Search Bar!
+    const searchClick = (event) => {
+        setSearch(event.target.value)
+    }
     return(
+        
          // It's the Navigation Bar, always above the container!!
          <div className={styles.container}>
             {/* Page Name */}
@@ -29,6 +39,29 @@ function Navbar(){
              {/* 🎄 Merry Christmas! */}
              <div className={styles.MerryChristMas}><Link to={`/search/christmas`}>Christmas🎄</Link></div>
          </div>
+
+          {/* Search Bar */}
+          <div className={styles.searchBar}>
+                <div>
+                    <form>
+                        {/* Search Text */}
+                        <input
+                            type="text"
+                            placeholder="Search Movie!"
+                            value={search}
+                            onChange={searchClick}
+                            onMouseOut={() => { setSearch("") }}
+                        >
+                        </input>
+                        {/* Search Button */}
+                        <Link to={`/search/${search}`}>
+                            <button>
+                                <FontAwesomeIcon icon={faSearch} size="lg" />
+                            </button>
+                        </Link>
+                    </form>
+                </div>
+            </div>
          </div>
     );
         

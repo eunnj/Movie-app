@@ -6,7 +6,7 @@ import{
 import Home from "./routes/Home"
 import Detail from "./routes/Detail";
 import Navbar from "./components/Navbar";
-import Group from "./components/Group";
+import Group from "./routes/Group";
 
 
 function App() {

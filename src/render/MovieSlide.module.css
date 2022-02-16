@@ -1,0 +1,33 @@
+.movie {
+    width: 230px;
+    background-color:whitesmoke;
+    transition: all 0.4s ease;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .movie:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  
+  .movie img {
+    width: 230px;
+    height: 345px;
+  }
+  
+  .movieName {
+    text-shadow: 3px 3px #a7b6b8;
+  }
+  
+  .letters {
+    padding: 0px 10px;
+  }
+  
+  .title {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

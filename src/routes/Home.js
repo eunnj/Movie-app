@@ -2,7 +2,8 @@ import { useState,useEffect } from "react";
 import { Group_obj, Group_key_arr } from "../components/NavList"
 import { Link } from "react-router-dom";
 import Load from "../components/Load";
-import styles from "../components/Home.module.css";
+import Slide from "../components/Slide"
+import styles from "./Home.module.css";
 
 function Home(){
     const [loading,setLoading] = useState(true);
@@ -35,6 +36,7 @@ function Home(){
                 </Link>
               </div>
             </div>
+            <Slide ytsApi={`https://yts.mx/api/v2/list_movies.json?limit=10&${Group_obj[group]}&sort_by=rating`} />
           </div>
           )
         })}
